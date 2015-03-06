@@ -1,22 +1,21 @@
 ARCHIVE_FILE=src/pam_two_factor.o
 CC=gcc
 CFLAGS=-c -fPIC
-LFLAGS=-lcurl -shared
 LINK_FILE=src/pam_two_factor.so
 
-all: config
+all: install
 
-config: cdistribute
+configure:
 	cp pam_two_factor.conf /etc/security/
 
-cdistribute: link 
+install: link 
 	mv $(LINK_FILE) /lib/security
 
 link: archive 
-	$(CC) $(LFLAGS) $(ARCHIVE_FILE) -o $(LINK_FILE)
+	$(CC) -shared $(ARCHIVE_FILE) -o $(LINK_FILE) -lcurl
 
 archive: src/pam_two_factor.c
-	$(CC) $(CFLAGS) src/pam_two_factor.c -o $(ARCHIVE_FILE)
+	$(CC) src/pam_two_factor.c -o $(ARCHIVE_FILE) $(CFLAGS)
 
 clean:
 	rm *.o

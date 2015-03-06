@@ -122,7 +122,7 @@ static char * get_config_var(char * config_var)
             {
                 for ( i = 0; i < strlen(result) - s_var_len; i++ )
                 {
-                    if ( result[i + s_var_len] == ' ')
+                    if ( result[i + s_var_len] == ' ' || result[i + s_var_len] == '\n' || result[i + s_var_len] == '\t' )
                     {
                         break;
                     }

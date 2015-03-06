@@ -16,7 +16,8 @@ project it makes a few assumptions
 
 Modify configuration settings in pam_two_factor.conf according to your system.
 
-    sudo make
+    sudo make install
+    sudo make configure
 
 Now modify any of the pam configuration files you want to add two factor authentication to
 
