@@ -12,6 +12,10 @@ project it makes a few assumptions
  * Your phone carrier is either ATT/Verizon/Sprint.
  * You have an internet connection :)
 
+As of this moment not all functionality for every conceivable two-factor circumstance
+has been builtin to this library but there is an API so additional modules can be 
+added on to make this library more complete.
+
 ## Usage
 
 Modify configuration settings in pam_two_factor.conf according to your system.
