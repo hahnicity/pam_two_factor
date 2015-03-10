@@ -5,9 +5,9 @@ extern const int MAXLINE;
 
 int communicate_with_user(int code, const char * username);
 
-char * get_config_var(char * get_config_var);
+int get_config_var(char * config_var_name, char * val);
 
-char * get_user_phone_number(const char * username);
+int get_user_phone_number(const char * username, char * phone_number);
 
 int send_email(char * smtp_url, char * cacert, char * send_to, char * from, int code, long verify_host);
 

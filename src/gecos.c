@@ -7,11 +7,10 @@
 const char ETC_PASSWD[] = "/etc/passwd";
 
 
-char * get_user_phone_number(const char * username)
+int get_user_phone_number(const char * username, char * phone_number)
 {
     FILE * fp;
     char buffer[MAXLINE];
-    char * phone_number;
     fp = fopen(ETC_PASSWD, "r");
     if ( fp != NULL )
     {
@@ -41,11 +40,10 @@ char * get_user_phone_number(const char * username)
                         }
                         if ( j == 1 )
                         {
-                            return "";
+                            return 1;
                         }
-                        phone_number = (char *)malloc(j + 1);
                         strncpy(phone_number, buffer + i + 1, j - 1);
-                        phone_number[j] = '\0';
+                        phone_number[j - 1] = '\0';
                         break;
                     }
                 }
@@ -53,6 +51,10 @@ char * get_user_phone_number(const char * username)
             }
         }
     }
-    return phone_number;
+    else
+    {
+        return 1;
+    }
+    return 0;
 }
 
