@@ -24,3 +24,6 @@ archive: src/pam_two_factor.c
 
 clean:
 	rm *.o
+
+uninstall:
+	rm /etc/security/pam_two_factor.conf /lib/security/$(LINK_FILE)
